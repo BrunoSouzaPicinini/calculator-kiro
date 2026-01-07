@@ -15,6 +15,51 @@ A simple, responsive web-based calculator built with vanilla HTML, CSS, and Java
 
 Open `index.html` in your web browser to start using the calculator.
 
+### Alternative 
+Open https://brunosouzapicinini.github.io/calculator-kiro/ 
+
+## Development Process Documentation
+
+This project was developed using a systematic spec-driven development approach. The following screenshots document the development process for other developers to understand the methodology:
+
+### Specification Creation Process
+
+The project started with a comprehensive specification creation process that included requirements gathering, design documentation, and task planning.
+
+#### Initial Specification Documents
+![Specification Process 1](doc/printscreen/first_spec_1.png)
+*Initial requirements gathering and specification structure setup*
+
+![Specification Process 2](doc/printscreen/first_spec_2.png)
+*Design document creation with architecture and component definitions*
+
+![Specification Process 3](doc/printscreen/first_spec_3.png)
+*Task breakdown and implementation planning with property-based testing integration*
+
+### Task Execution Process
+
+The implementation followed the planned tasks systematically, with each task building upon the previous ones.
+
+#### Task Implementation
+![Task Execution 1](doc/printscreen/first_task_execution_1.png)
+*Example of task execution showing incremental development approach*
+
+![Task Execution 2](doc/printscreen/first_task_execution_2.png)
+*Property-based testing implementation and validation process*
+
+### Development Metrics
+
+![Development Credits](doc/printscreen/used_credits.png)
+*Resource utilization during the development process*
+
+### Development Methodology Highlights
+
+- **Spec-Driven Development**: Requirements → Design → Tasks → Implementation
+- **Property-Based Testing**: Universal correctness properties validated with 100+ test iterations
+- **Incremental Implementation**: Each task builds upon previous work
+- **Comprehensive Testing**: Both unit tests and property-based tests for robust validation
+- **Documentation-First**: Complete specifications before implementation begins
+
 ## Usage
 
 ### Mouse/Touch Input
@@ -156,6 +201,18 @@ The calculator adapts to different screen sizes:
 - Add tests for new functionality
 - Ensure all tests pass before submitting
 - Update documentation as needed
+
+### Recommended Development Process
+
+Based on this project's successful implementation, we recommend following this spec-driven development approach:
+
+1. **Requirements Phase**: Define clear, testable requirements using EARS patterns
+2. **Design Phase**: Create comprehensive design with correctness properties
+3. **Task Planning**: Break down implementation into incremental, testable tasks
+4. **Implementation**: Execute tasks systematically with continuous testing
+5. **Validation**: Ensure all property-based tests and unit tests pass
+
+The documentation images in `doc/printscreen/` show this methodology in action and can serve as a reference for similar projects.
 
 ## License
 
