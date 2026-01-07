@@ -1,0 +1,550 @@
+/* CSS Custom Properties for consistent theming and responsive sizing */
+:root {
+    --calculator-width: 320px;
+    --calculator-max-width: 400px;
+    --button-size: 70px;
+    --button-gap: 8px;
+    --display-height: 80px;
+    --border-radius: 8px;
+    --font-size-display: 2rem;
+    --font-size-button: 1.2rem;
+
+    /* Colors */
+    --bg-primary: #f5f5f5;
+    --bg-calculator: #ffffff;
+    --bg-display: #000000;
+    --text-display: #ffffff;
+    --bg-number: #e0e0e0;
+    --bg-operation: #ff9500;
+    --bg-function: #a6a6a6;
+    --text-number: #000000;
+    --text-operation: #ffffff;
+    --text-function: #000000;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Calculator container and main structure */
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.calculator {
+    background-color: var(--bg-calculator);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    width: var(--calculator-width);
+    max-width: var(--calculator-max-width);
+}
+
+/* Display area styling */
+.display {
+    background-color: var(--bg-display);
+    color: var(--text-display);
+    font-size: var(--font-size-display);
+    font-weight: 300;
+    text-align: right;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: var(--border-radius);
+    height: var(--display-height);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+/* Button grid layout using CSS Grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: var(--button-gap);
+    width: 100%;
+}
+
+/* Base button styling */
+.btn {
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-button);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: var(--button-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Button type-specific styling */
+.btn-number {
+    background-color: var(--bg-number);
+    color: var(--text-number);
+}
+
+.btn-operation {
+    background-color: var(--bg-operation);
+    color: var(--text-operation);
+}
+
+.btn-function {
+    background-color: var(--bg-function);
+    color: var(--text-function);
+}
+
+/* Special grid positioning for specific buttons */
+/* Zero button spans 2 columns */
+.btn[data-number="0"] {
+    grid-column: span 2;
+}
+
+/* Plus button spans 2 rows */
+.btn[data-operation="+"] {
+    grid-row: span 2;
+}
+
+/* Equals button spans 2 rows */
+.btn[data-action="equals"] {
+    grid-row: span 2;
+}
+
+/* Responsive design for different screen sizes */
+
+/* Large desktop styles (1200px and up) */
+@media (min-width: 1200px) {
+    :root {
+        --calculator-width: 380px;
+        --calculator-max-width: 450px;
+        --button-size: 80px;
+        --button-gap: 10px;
+        --display-height: 90px;
+        --font-size-display: 2.4rem;
+        --font-size-button: 1.4rem;
+    }
+
+    .calculator {
+        padding: 24px;
+    }
+
+    .display {
+        padding: 24px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Standard desktop styles (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    :root {
+        --calculator-width: 340px;
+        --calculator-max-width: 420px;
+        --button-size: 75px;
+        --button-gap: 9px;
+        --display-height: 85px;
+        --font-size-display: 2.2rem;
+        --font-size-button: 1.3rem;
+    }
+
+    .calculator {
+        padding: 22px;
+    }
+}
+
+/* Tablet landscape styles (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    :root {
+        --calculator-width: 320px;
+        --calculator-max-width: 400px;
+        --button-size: 70px;
+        --button-gap: 8px;
+        --display-height: 80px;
+        --font-size-display: 2rem;
+        --font-size-button: 1.2rem;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    .calculator {
+        padding: 20px;
+    }
+}
+
+/* Tablet portrait styles (481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    :root {
+        --calculator-width: 300px;
+        --button-size: 65px;
+        --button-gap: 7px;
+        --display-height: 75px;
+        --font-size-display: 1.8rem;
+        --font-size-button: 1.1rem;
+    }
+
+    body {
+        padding: 15px;
+    }
+
+    .calculator {
+        padding: 16px;
+    }
+
+    .display {
+        padding: 18px;
+        margin-bottom: 14px;
+    }
+}
+
+/* Mobile landscape styles (376px to 480px) */
+@media (min-width: 376px) and (max-width: 480px) {
+    :root {
+        --calculator-width: 280px;
+        --button-size: 60px;
+        --button-gap: 6px;
+        --display-height: 70px;
+        --font-size-display: 1.6rem;
+        --font-size-button: 1rem;
+    }
+
+    body {
+        padding: 10px;
+        /* Optimize for landscape orientation */
+        min-height: 100vh;
+        justify-content: center;
+    }
+
+    .calculator {
+        padding: 12px;
+    }
+
+    .display {
+        padding: 16px;
+        margin-bottom: 12px;
+    }
+}
+
+/* Small mobile portrait styles (321px to 375px) */
+@media (min-width: 321px) and (max-width: 375px) {
+    :root {
+        --calculator-width: 260px;
+        --button-size: 55px;
+        --button-gap: 5px;
+        --display-height: 65px;
+        --font-size-display: 1.4rem;
+        --font-size-button: 0.9rem;
+    }
+
+    body {
+        padding: 8px;
+    }
+
+    .calculator {
+        padding: 10px;
+    }
+
+    .display {
+        padding: 14px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Extra small mobile styles (320px and below) */
+@media (max-width: 320px) {
+    :root {
+        --calculator-width: 240px;
+        --button-size: 50px;
+        --button-gap: 4px;
+        --display-height: 60px;
+        --font-size-display: 1.3rem;
+        --font-size-button: 0.85rem;
+    }
+
+    body {
+        padding: 5px;
+    }
+
+    .calculator {
+        padding: 8px;
+    }
+
+    .display {
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+
+    /* Ensure buttons remain touch-friendly even on very small screens */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Enhanced mobile-specific optimizations */
+
+/* Ensure minimum touch-friendly button sizes on all mobile devices */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+        /* Enhanced touch target with padding for better accessibility */
+        padding: 8px;
+        /* Improved touch feedback */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+        /* Prevent text selection on touch */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        /* Smooth touch interactions */
+        touch-action: manipulation;
+    }
+
+    /* Enhanced display for mobile readability */
+    .display {
+        /* Larger text for better mobile readability */
+        font-size: calc(var(--font-size-display) + 0.2rem);
+        /* Better contrast for outdoor mobile usage */
+        background-color: #1a1a1a;
+        /* Prevent zoom on double-tap */
+        touch-action: manipulation;
+    }
+
+    /* Improved calculator container for mobile */
+    .calculator {
+        /* Better mobile spacing */
+        margin: 0 auto;
+        /* Ensure full width usage on small screens */
+        width: min(var(--calculator-width), calc(100vw - 20px));
+        /* Enhanced shadow for mobile depth perception */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Better button spacing for touch accuracy */
+    .buttons {
+        gap: max(var(--button-gap), 8px);
+    }
+}
+
+/* Button interaction states for accessibility */
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus {
+    outline: 2px solid #007AFF;
+    outline-offset: 2px;
+}
+
+/* Specific hover states for different button types */
+.btn-number:hover {
+    background-color: #d0d0d0;
+}
+
+.btn-operation:hover {
+    background-color: #ffad33;
+}
+
+.btn-function:hover {
+    background-color: #909090;
+}
+
+/* Active states for visual feedback */
+.btn-number:active {
+    background-color: #c0c0c0;
+}
+
+.btn-operation:active {
+    background-color: #e6850e;
+}
+
+.btn-function:active {
+    background-color: #808080;
+}
+
+/* Enhanced visual distinction between button types */
+.btn-number {
+    border: 1px solid #d0d0d0;
+    font-weight: 400;
+}
+
+.btn-operation {
+    border: 1px solid #e6850e;
+    font-weight: 600;
+    font-size: calc(var(--font-size-button) + 0.1rem);
+}
+
+.btn-function {
+    border: 1px solid #909090;
+    font-weight: 600;
+}
+
+/* Special styling for the equals button */
+.btn[data-action="equals"] {
+    background-color: var(--bg-operation);
+    color: var(--text-operation);
+    font-size: calc(var(--font-size-button) + 0.2rem);
+}
+
+.btn[data-action="equals"]:hover {
+    background-color: #ffad33;
+}
+
+.btn[data-action="equals"]:active {
+    background-color: #e6850e;
+}
+
+/* Enhanced display styling */
+.display {
+    border: 2px solid #333333;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+/* Adjust hover effects for touch devices */
+@media (hover: none) {
+    .btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* Mobile orientation optimizations */
+
+/* Portrait orientation optimizations */
+@media (max-width: 768px) and (orientation: portrait) {
+    body {
+        /* Optimize vertical space usage */
+        align-items: flex-start;
+        padding-top: max(20px, env(safe-area-inset-top));
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+
+    .calculator-container {
+        /* Center calculator in available space */
+        min-height: calc(100vh - 40px);
+        align-items: center;
+    }
+
+    .calculator {
+        /* Ensure calculator fits in viewport */
+        max-height: calc(100vh - 60px);
+        width: min(var(--calculator-width), calc(100vw - 20px));
+    }
+}
+
+/* Landscape orientation optimizations for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    body {
+        /* Optimize horizontal space usage */
+        padding: 10px max(10px, env(safe-area-inset-left)) 10px max(10px, env(safe-area-inset-right));
+    }
+
+    .calculator {
+        /* Compact layout for landscape */
+        width: min(var(--calculator-width), calc(100vw - 40px));
+        max-width: 350px;
+    }
+
+    :root {
+        /* Slightly smaller elements for landscape */
+        --button-size: calc(var(--button-size) * 0.9);
+        --display-height: calc(var(--display-height) * 0.9);
+        --font-size-display: calc(var(--font-size-display) * 0.9);
+    }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .calculator {
+        /* Enhanced shadows for high DPI displays */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+        /* Crisper borders on high DPI */
+        border-width: 0.5px;
+    }
+
+    .display {
+        /* Enhanced border for high DPI */
+        border-width: 1px;
+    }
+}
+
+/* Accessibility improvements for mobile */
+@media (max-width: 768px) {
+
+    /* Larger focus indicators for mobile */
+    .btn:focus {
+        outline: 3px solid #007AFF;
+        outline-offset: 3px;
+    }
+
+    /* Enhanced contrast for mobile outdoor usage */
+    .btn-number {
+        background-color: #f0f0f0;
+        border: 1px solid #c0c0c0;
+    }
+
+    .btn-operation {
+        background-color: #ff9500;
+        border: 1px solid #e6850e;
+        /* Enhanced contrast for operation buttons */
+        font-weight: 700;
+    }
+
+    .btn-function {
+        background-color: #a0a0a0;
+        border: 1px solid #808080;
+        /* Enhanced contrast for function buttons */
+        font-weight: 700;
+    }
+
+    /* Improved active states for touch feedback */
+    .btn:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+}
+
+/* Safe area insets for devices with notches */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+        padding-top: max(20px, env(safe-area-inset-top));
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+}

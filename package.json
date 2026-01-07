@@ -1,0 +1,22 @@
+{
+    "name": "web-calculator",
+    "version": "1.0.0",
+    "description": "A simple web-based calculator for basic arithmetic operations",
+    "main": "calculator.js",
+    "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch"
+    },
+    "devDependencies": {
+        "fast-check": "^3.15.0",
+        "jest": "^29.7.0",
+        "jest-environment-jsdom": "^29.7.0",
+        "jsdom": "^27.4.0"
+    },
+    "jest": {
+        "testEnvironment": "jsdom",
+        "setupFilesAfterEnv": [
+            "<rootDir>/test-setup.js"
+        ]
+    }
+}
